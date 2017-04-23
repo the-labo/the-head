@@ -167,10 +167,7 @@ TheHead.defaultProps = {
   versionKey: 'v',
   base: null,
   baseTarget: undefined,
-  viewPort: {
-    width: 'device-width',
-    initialScale: '1.0'
-  },
+  viewPort: { width: 'device-width', initialScale: '1.0' },
   metaContents: {},
   metaProperties: {},
   itemProps: {},
