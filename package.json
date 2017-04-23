@@ -1,6 +1,6 @@
 {
   "name": "the-head",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Head of the-components",
   "main": "shim",
   "scripts": {
@@ -15,7 +15,8 @@
   },
   "repository": "the-labo/the-head",
   "keywords": [
-    "the"
+    "the",
+    "react-component"
   ],
   "author": {
     "name": "Taka Okunishi",
