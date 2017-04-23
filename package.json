@@ -1,6 +1,6 @@
 {
   "name": "the-head",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Head of the-components",
   "main": "shim",
   "scripts": {
@@ -31,13 +31,13 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
     "stringcase": "^3.2.1",
     "the-script-update": "^1.0.0",
     "the-style": "^1.1.1"
   },
   "devDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "the-script-build": "^1.2.2",
     "the-script-doc": "^1.0.1",
     "the-script-release": "^1.0.4",
@@ -45,6 +45,10 @@
     "the-script-test": "^1.0.1",
     "the-script-update": "^1.0.0",
     "the-templates": "^1.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=15",
+    "react-dom": ">=15"
   },
   "engines": {
     "node": ">=6",
