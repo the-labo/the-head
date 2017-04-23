@@ -1,0 +1,207 @@
+{
+  "TheHead": {
+    "description": "Head of the-components",
+    "displayName": "TheHead",
+    "methods": [
+      {
+        "name": "getVersionQuery",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "styles",
+        "docblock": "Define style\n@param [options={}] options - Optional settings\n@returns {Object} Style object",
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "options"
+          }
+        ],
+        "returns": null,
+        "description": "Define style"
+      }
+    ],
+    "props": {
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CSS class name",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DOM Id",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "charSet": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Char set",
+        "defaultValue": {
+          "value": "'utf-8'",
+          "computed": false
+        }
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Document title",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Favicon url",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "globals": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Global variables",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "version": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Version string",
+        "defaultValue": {
+          "value": "'unknown'",
+          "computed": false
+        }
+      },
+      "versionKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key for version query",
+        "defaultValue": {
+          "value": "'v'",
+          "computed": false
+        }
+      },
+      "viewPort": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "View port settings",
+        "defaultValue": {
+          "value": "{\n  width: 'device-width',\n  initialScale: '1.0'\n}",
+          "computed": false
+        }
+      },
+      "base": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Base url",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "baseTarget": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Target of base url. '_blank', '_parent', '_self', '_top' or frame name",
+        "defaultValue": {
+          "value": "undefined",
+          "computed": true
+        }
+      },
+      "metaContents": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Met contents",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "metaProperties": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Met properties",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "itemProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Item props",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Theme color",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "manifest": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Path of manifest.json",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      }
+    }
+  }
+}
