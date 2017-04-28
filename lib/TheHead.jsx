@@ -3,7 +3,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import TheStyle from 'the-style'
 import { spinalcase } from 'stringcase'
 
 const addQuery = (url, query) => [ url, query ].join(/\?/.test(url) ? '&' : '?')
@@ -106,18 +105,6 @@ class TheHead extends React.PureComponent {
     const s = this
     let { versionKey, version } = s.props
     return [ versionKey, version ].join('=')
-  }
-
-  /**
-   * Define style
-   * @param [options={}] options - Optional settings
-   * @returns {Object} Style object
-   */
-  static styles (options = {}) {
-    let {} = options
-    return {
-      root: {}
-    }
   }
 }
 

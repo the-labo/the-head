@@ -9,20 +9,6 @@
         "modifiers": [],
         "params": [],
         "returns": null
-      },
-      {
-        "name": "styles",
-        "docblock": "Define style\n@param [options={}] options - Optional settings\n@returns {Object} Style object",
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "options"
-          }
-        ],
-        "returns": null,
-        "description": "Define style"
       }
     ],
     "props": {

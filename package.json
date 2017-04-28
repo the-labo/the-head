@@ -1,6 +1,6 @@
 {
   "name": "the-head",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Head of the-components",
   "main": "shim",
   "scripts": {
@@ -31,8 +31,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
-    "stringcase": "^3.2.1",
-    "the-style": "^1.1.1"
+    "stringcase": "^3.2.1"
   },
   "devDependencies": {
     "react": "^15.5.4",
