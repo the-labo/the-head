@@ -107,7 +107,7 @@
         "required": false,
         "description": "View port settings",
         "defaultValue": {
-          "value": "{ width: 'device-width', initialScale: '1.0' }",
+          "value": "{width: 'device-width', initialScale: '1.0'}",
           "computed": false
         }
       },
@@ -183,6 +183,17 @@
         },
         "required": false,
         "description": "Path of manifest.json",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "cdn": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CDN URL",
         "defaultValue": {
           "value": "null",
           "computed": false
