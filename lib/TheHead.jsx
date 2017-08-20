@@ -2,12 +2,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import { spinalcase } from 'stringcase'
+import { resolve as resolveUrl } from 'url'
 
-const addQuery = (url, query) => [ url, query ].join(/\?/.test(url) ? '&' : '?')
+const addQuery = (url, query) => [url, query].join(/\?/.test(url) ? '&' : '?')
 const viewPortString = (values) => Object.keys(values || {}).map((key) =>
-  [ spinalcase(key), values[ key ] ].join('=')
+  [spinalcase(key), values[key]].join('=')
 ).join(',')
 const stringify = (vars) => vars ? JSON.stringify(vars) : 'null'
 
@@ -17,8 +18,8 @@ const stringify = (vars) => vars ? JSON.stringify(vars) : 'null'
 class TheHead extends React.PureComponent {
   render () {
     const s = this
-    const { props } = s
-    let {
+    const {props} = s
+    const {
       id,
       className,
       charSet,
@@ -35,54 +36,66 @@ class TheHead extends React.PureComponent {
       metaProperties,
       itemProps,
       color,
-      manifest
+      manifest,
+      cdn
     } = props
 
-    let vQuery = s.getVersionQuery()
+    const vQuery = s.getVersionQuery()
+
+    const urlFor = (url) => {
+      if (vQuery) {
+        url = addQuery(url, vQuery)
+      }
+      if (cdn && /^\//.test(url)) {
+        url = resolveUrl(cdn, url)
+      }
+      return url
+    }
+
     return (
-      <head className={ classnames('the-head', className) }
-            { ...{ id }}
+      <head className={c('the-head', className)}
+            {...{id}}
       >
 
-        { charSet && (<meta className='the-head-charset' charSet={ charSet }/>) }
-        { base && <base className='the-head-base' href={ base } target={ baseTarget }/> }
-        { title && (<title className='the-head-title'>{ title }</title>) }
-        { icon && (<link className='the-head-icon' rel='icon' href={ addQuery(icon, vQuery) }/>) }
-        { viewPort && (<meta className='the-head-viewport' name='viewport' content={ viewPortString(viewPort) }/>) }
+        {charSet && (<meta className='the-head-charset' charSet={charSet}/>)}
+        {base && <base className='the-head-base' href={base} target={baseTarget}/>}
+        {title && (<title className='the-head-title'>{title}</title>)}
+        {icon && (<link className='the-head-icon' rel='icon' href={urlFor(icon)}/>)}
+        {viewPort && (<meta className='the-head-viewport' name='viewport' content={viewPortString(viewPort)}/>)}
         {
           metaContents && Object.keys(metaContents).map((name) => (
-            <meta className='the-head-meta-content' key={name} name={name} content={ metaContents[ name ]}/>
+            <meta className='the-head-meta-content' key={name} name={name} content={metaContents[name]}/>
           ))
         }
         {
           metaProperties && Object.keys(metaProperties).map((name) => (
-            <meta className='the-head-meta-property' key={name} name={name} property={ metaProperties[ name ]}/>
+            <meta className='the-head-meta-property' key={name} name={name} property={metaProperties[name]}/>
           ))
         }
         {
           itemProps && Object.keys(itemProps).map((name) => (
-            <meta className='the-head-item-prop' key={name} itemProp={name} content={ metaContents[ name ]}/>
+            <meta className='the-head-item-prop' key={name} itemProp={name} content={metaContents[name]}/>
           ))
         }
-        { color && (<meta className='the-head-theme-color' name='theme-color' content={ color }/>) }
-        { manifest && (<link className='the-head-manifest' rel='manifest' href={ color }/>) }
+        {color && (<meta className='the-head-theme-color' name='theme-color' content={color}/>)}
+        {manifest && (<link className='the-head-manifest' rel='manifest' href={color}/>)}
 
         {
           [].concat(css).filter(Boolean).map((url) => (
             <link rel='stylesheet'
                   type='text/css'
-                  key={ url }
+                  key={url}
                   className='the-head-css'
-                  href={ addQuery(url, vQuery) }/>
+                  href={urlFor(url)}/>
           ))
         }
         {
           globals && Object.keys(globals).map((name) => (
             <script type='text/javascript'
-                    key={ name }
+                    key={name}
                     className='the-head-globals'
                     dangerouslySetInnerHTML={
-                      { __html: `window.${name}=${stringify(globals[ name ])}` }
+                      {__html: `window.${name}=${stringify(globals[name])}`}
                     }>
             </script>
           ))
@@ -90,21 +103,21 @@ class TheHead extends React.PureComponent {
         {
           [].concat(js).filter(Boolean).map((url) => (
             <script type='text/javascript'
-                    key={ url }
+                    key={url}
                     className='the-head-js'
-                    src={ addQuery(url, vQuery)}>
+                    src={urlFor(url)}>
             </script>
           ))
         }
-        { children }
+        {children}
       </head>
     )
   }
 
   getVersionQuery () {
     const s = this
-    let { versionKey, version } = s.props
-    return [ versionKey, version ].join('=')
+    let {versionKey, version} = s.props
+    return [versionKey, version].join('=')
   }
 }
 
@@ -140,7 +153,9 @@ TheHead.propTypes = {
   /** Theme color */
   color: PropTypes.string,
   /** Path of manifest.json */
-  manifest: PropTypes.string
+  manifest: PropTypes.string,
+  /** CDN URL */
+  cdn: PropTypes.string
 }
 
 TheHead.defaultProps = {
@@ -154,12 +169,13 @@ TheHead.defaultProps = {
   versionKey: 'v',
   base: null,
   baseTarget: undefined,
-  viewPort: { width: 'device-width', initialScale: '1.0' },
+  viewPort: {width: 'device-width', initialScale: '1.0'},
   metaContents: {},
   metaProperties: {},
   itemProps: {},
   color: null,
-  manifest: null
+  manifest: null,
+  cdn: null
 }
 
 TheHead.displayName = 'TheHead'

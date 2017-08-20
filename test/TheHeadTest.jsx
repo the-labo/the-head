@@ -17,7 +17,7 @@ describe('the-head', () => {
   })
 
   it('Render a component', () => {
-    let element = render(
+    const element = render(
       <TheHead color='#38E'/>
     )
     ok(element)

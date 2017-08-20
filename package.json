@@ -31,7 +31,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
-    "stringcase": "^3.2.1"
+    "stringcase": "^4.0.0"
   },
   "devDependencies": {
     "react": "^15.5.4",
