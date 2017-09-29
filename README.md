@@ -119,7 +119,7 @@ Head of the-components
 | `globals` | object  | Global variables | `{}` |
 | `version` | string  | Version string | `'unknown'` |
 | `versionKey` | string  | Key for version query | `'v'` |
-| `viewPort` | object  | View port settings | `{ width: 'device-width', initialScale: '1.0' }` |
+| `viewPort` | object  | View port settings | `{width: 'device-width', initialScale: '1.0'}` |
 | `base` | string  | Base url | `null` |
 | `baseTarget` | string  | Target of base url. '_blank', '_parent', '_self', '_top' or frame name | `undefined` |
 | `metaContents` | object  | Met contents | `{}` |
@@ -127,6 +127,7 @@ Head of the-components
 | `itemProps` | object  | Item props | `{}` |
 | `color` | string  | Theme color | `null` |
 | `manifest` | string  | Path of manifest.json | `null` |
+| `cdn` | string  | CDN URL | `null` |
 
 
 <!-- Section from "docs/guides/03.Components.md.hbs" End -->
