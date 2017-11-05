@@ -123,10 +123,10 @@ class TheHead extends React.PureComponent {
     const {fallbackUnless, css, js} = s.props
     const fallbackHTML = [
       ...[].concat(css).filter(Boolean).map((url) =>
-        `<link rel="stylesheet" type="text/css" class="the-head-css" href=${addQuery(url, vQuery)}/>`
+        `<link rel="stylesheet" type="text/css" class="the-head-css" href="${addQuery(url, vQuery)}"/>`
       ),
       ...[].concat(js).filter(Boolean).map((url) =>
-        `<script type="text/javascript" class="the-head-js" src=${addQuery(url, vQuery)}></script>`
+        `<script type="text/javascript" class="the-head-js" src="${addQuery(url, vQuery)}"></script>`
       )
     ].join('')
     return `
