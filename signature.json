@@ -9,6 +9,25 @@
         "modifiers": [],
         "params": [],
         "returns": null
+      },
+      {
+        "name": "getFallbackScript",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "urlFor",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "url",
+            "type": null
+          }
+        ],
+        "returns": null
       }
     ],
     "props": {
@@ -194,6 +213,17 @@
         },
         "required": false,
         "description": "CDN URL",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "fallbackUnless": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Global property for fall back",
         "defaultValue": {
           "value": "null",
           "computed": false

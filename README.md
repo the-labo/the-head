@@ -128,6 +128,7 @@ Head of the-components
 | `color` | string  | Theme color | `null` |
 | `manifest` | string  | Path of manifest.json | `null` |
 | `cdn` | string  | CDN URL | `null` |
+| `fallbackUnless` | string  | Global property for fall back | `null` |
 
 
 <!-- Section from "docs/guides/03.Components.md.hbs" End -->

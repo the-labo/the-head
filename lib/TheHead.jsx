@@ -37,21 +37,10 @@ class TheHead extends React.PureComponent {
       itemProps,
       color,
       manifest,
-      cdn
+      fallbackUnless
     } = props
 
-    const vQuery = s.getVersionQuery()
-
-    const urlFor = (url) => {
-      if (vQuery) {
-        url = addQuery(url, vQuery)
-      }
-      if (cdn && /^\//.test(url)) {
-        url = resolveUrl(cdn, url)
-      }
-      return url
-    }
-
+    const fallbackScript = s.getFallbackScript(fallbackUnless)
     return (
       <head className={c('the-head', className)}
             {...{id}}
@@ -60,7 +49,7 @@ class TheHead extends React.PureComponent {
         {charSet && (<meta className='the-head-charset' charSet={charSet}/>)}
         {base && <base className='the-head-base' href={base} target={baseTarget}/>}
         {title && (<title className='the-head-title'>{title}</title>)}
-        {icon && (<link className='the-head-icon' rel='icon' href={urlFor(icon)}/>)}
+        {icon && (<link className='the-head-icon' rel='icon' href={s.urlFor(icon)}/>)}
         {viewPort && (<meta className='the-head-viewport' name='viewport' content={viewPortString(viewPort)}/>)}
         {
           metaContents && Object.keys(metaContents).map((name) => (
@@ -86,7 +75,7 @@ class TheHead extends React.PureComponent {
                   type='text/css'
                   key={url}
                   className='the-head-css'
-                  href={urlFor(url)}/>
+                  href={s.urlFor(url)}/>
           ))
         }
         {
@@ -105,9 +94,17 @@ class TheHead extends React.PureComponent {
             <script type='text/javascript'
                     key={url}
                     className='the-head-js'
-                    src={urlFor(url)}>
+                    src={s.urlFor(url)}>
             </script>
           ))
+        }
+        {
+          fallbackScript && (
+            <script dangerouslySetInnerHTML={{
+              __html: fallbackScript
+            }}>
+            </script>
+          )
         }
         {children}
       </head>
@@ -116,8 +113,41 @@ class TheHead extends React.PureComponent {
 
   getVersionQuery () {
     const s = this
-    let {versionKey, version} = s.props
+    const {versionKey, version} = s.props
     return [versionKey, version].join('=')
+  }
+
+  getFallbackScript () {
+    const s = this
+    const vQuery = s.getVersionQuery()
+    const {fallbackUnless, css, js} = s.props
+    const fallbackHTML = [
+      ...[].concat(css).filter(Boolean).map((url) =>
+        `<link rel="stylesheet" type="text/css" class="the-head-css" href=${addQuery(url, vQuery)}/>`
+      ),
+      ...[].concat(js).filter(Boolean).map((url) =>
+        `<script type="text/javascript" class="the-head-js" src=${addQuery(url, vQuery)}></script>`
+      )
+    ].join('')
+    return `
+if(!window.${fallbackUnless}) {
+  document.write(decodeURIComponent('${encodeURIComponent(fallbackHTML)}'))
+  console.log('[TheHead] Using fallback assets because "${fallbackUnless}" not found')
+}
+    `.trim()
+  }
+
+  urlFor (url) {
+    const s = this
+    const {cdn} = s.props
+    const vQuery = s.getVersionQuery()
+    if (vQuery) {
+      url = addQuery(url, vQuery)
+    }
+    if (cdn && /^\//.test(url)) {
+      url = resolveUrl(cdn, url)
+    }
+    return url
   }
 }
 
@@ -155,7 +185,9 @@ TheHead.propTypes = {
   /** Path of manifest.json */
   manifest: PropTypes.string,
   /** CDN URL */
-  cdn: PropTypes.string
+  cdn: PropTypes.string,
+  /** Global property for fall back */
+  fallbackUnless: PropTypes.string
 }
 
 TheHead.defaultProps = {
@@ -175,7 +207,8 @@ TheHead.defaultProps = {
   itemProps: {},
   color: null,
   manifest: null,
-  cdn: null
+  cdn: null,
+  fallbackUnless: null
 }
 
 TheHead.displayName = 'TheHead'
