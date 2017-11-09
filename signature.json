@@ -14,7 +14,12 @@
         "name": "getFallbackScript",
         "docblock": null,
         "modifiers": [],
-        "params": [],
+        "params": [
+          {
+            "name": "fallbackUnless",
+            "type": null
+          }
+        ],
         "returns": null
       },
       {

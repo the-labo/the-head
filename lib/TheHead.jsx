@@ -117,10 +117,13 @@ class TheHead extends React.PureComponent {
     return [versionKey, version].join('=')
   }
 
-  getFallbackScript () {
+  getFallbackScript (fallbackUnless) {
+    if (!fallbackUnless) {
+      return null
+    }
     const s = this
     const vQuery = s.getVersionQuery()
-    const {fallbackUnless, css, js} = s.props
+    const {css, js} = s.props
     const fallbackHTML = [
       ...[].concat(css).filter(Boolean).map((url) =>
         `<link rel="stylesheet" type="text/css" class="the-head-css" href="${addQuery(url, vQuery)}"/>`
