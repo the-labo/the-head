@@ -15,10 +15,9 @@ const stringify = (vars) => vars ? JSON.stringify(vars) : 'null'
 /**
  * Head of the-components
  */
-class TheHead extends React.PureComponent {
+class TheHead extends React.Component {
   render () {
-    const s = this
-    const {props} = s
+    const {props} = this
     const {
       id,
       className,
@@ -40,7 +39,7 @@ class TheHead extends React.PureComponent {
       fallbackUnless
     } = props
 
-    const fallbackScript = s.getFallbackScript(fallbackUnless)
+    const fallbackScript = this.getFallbackScript(fallbackUnless)
     return (
       <head className={c('the-head', className)}
             {...{id}}
@@ -49,7 +48,7 @@ class TheHead extends React.PureComponent {
         {charSet && (<meta className='the-head-charset' charSet={charSet}/>)}
         {base && <base className='the-head-base' href={base} target={baseTarget}/>}
         {title && (<title className='the-head-title'>{title}</title>)}
-        {icon && (<link className='the-head-icon' rel='icon' href={s.urlFor(icon)}/>)}
+        {icon && (<link className='the-head-icon' rel='icon' href={this.urlFor(icon)}/>)}
         {viewPort && (<meta className='the-head-viewport' name='viewport' content={viewPortString(viewPort)}/>)}
         {
           metaContents && Object.keys(metaContents).map((name) => (
@@ -75,7 +74,7 @@ class TheHead extends React.PureComponent {
                   type='text/css'
                   key={url}
                   className='the-head-css'
-                  href={s.urlFor(url)}/>
+                  href={this.urlFor(url)}/>
           ))
         }
         {
@@ -94,7 +93,7 @@ class TheHead extends React.PureComponent {
             <script type='text/javascript'
                     key={url}
                     className='the-head-js'
-                    src={s.urlFor(url)}>
+                    src={this.urlFor(url)}>
             </script>
           ))
         }
@@ -112,8 +111,7 @@ class TheHead extends React.PureComponent {
   }
 
   getVersionQuery () {
-    const s = this
-    const {versionKey, version} = s.props
+    const {versionKey, version} = this.props
     return [versionKey, version].join('=')
   }
 
@@ -121,9 +119,8 @@ class TheHead extends React.PureComponent {
     if (!fallbackUnless) {
       return null
     }
-    const s = this
-    const vQuery = s.getVersionQuery()
-    const {css, js} = s.props
+    const vQuery = this.getVersionQuery()
+    const {css, js} = this.props
     const fallbackHTML = [
       ...[].concat(css).filter(Boolean).map((url) =>
         `<link rel="stylesheet" type="text/css" class="the-head-css" href="${addQuery(url, vQuery)}"/>`
@@ -133,17 +130,18 @@ class TheHead extends React.PureComponent {
       )
     ].join('')
     return `
-if(!window.${fallbackUnless}) {
-  document.write(decodeURIComponent('${encodeURIComponent(fallbackHTML)}'))
-  console.log('[TheHead] Using fallback assets because "${fallbackUnless}" not found')
-}
+document.addEventListener('DOMContentLoaded', function(event) {
+  if(!window['${fallbackUnless}']) {
+    document.write(decodeURIComponent('${encodeURIComponent(fallbackHTML)}'))
+    console.log('[TheHead] Using fallback assets because "${fallbackUnless}" not found')
+  }
+})
     `.trim()
   }
 
   urlFor (url) {
-    const s = this
-    const {cdn} = s.props
-    const vQuery = s.getVersionQuery()
+    const {cdn} = this.props
+    const vQuery = this.getVersionQuery()
     if (vQuery) {
       url = addQuery(url, vQuery)
     }
