@@ -131,7 +131,7 @@ class TheHead extends React.Component {
     ].join('')
     return `
 document.addEventListener('DOMContentLoaded', function(event) {
-  if(!window['${fallbackUnless}']) {
+  if(!window.${fallbackUnless}) {
     document.write(decodeURIComponent('${encodeURIComponent(fallbackHTML)}'))
     console.log('[TheHead] Using fallback assets because "${fallbackUnless}" not found')
   }
