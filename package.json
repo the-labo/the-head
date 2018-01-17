@@ -1,6 +1,6 @@
 {
   "name": "the-head",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Head of the-components",
   "main": "shim",
   "scripts": {
