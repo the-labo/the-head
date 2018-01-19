@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import c from 'classnames'
 import { spinalcase } from 'stringcase'
 import { resolve as resolveUrl } from 'url'
+import { expand } from 'objnest'
 
 const addQuery = (url, query) => [url, query].join(/\?/.test(url) ? '&' : '?')
 const viewPortString = (values) => Object.keys(values || {}).map((key) =>
@@ -24,7 +25,6 @@ class TheHead extends React.Component {
       charSet,
       title,
       icon,
-      globals,
       base,
       baseTarget,
       viewPort,
@@ -38,6 +38,8 @@ class TheHead extends React.Component {
       manifest,
       fallbackUnless
     } = props
+
+    const globals = expand(props.globals || {})
 
     const fallbackScript = this.getFallbackScript(fallbackUnless)
     return (
@@ -78,7 +80,7 @@ class TheHead extends React.Component {
           ))
         }
         {
-          globals && Object.keys(globals).map((name) => (
+          Object.keys(globals).map((name) => (
             <script type='text/javascript'
                     key={name}
                     className='the-head-globals'

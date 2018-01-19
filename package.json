@@ -1,8 +1,47 @@
 {
   "name": "the-head",
-  "version": "1.0.13",
   "description": "Head of the-components",
+  "version": "1.0.13",
+  "author": {
+    "name": "Taka Okunishi",
+    "email": "okunishinishi@gmail.com",
+    "url": "http://okunishitaka.com"
+  },
+  "bugs": {
+    "url": "https://github.com/the-labo/the-head/issues"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "stringcase": "^4.1.0"
+  },
+  "devDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "the-script-build": "^2.0.4",
+    "the-script-doc": "^1.0.1",
+    "the-script-release": "^1.0.6",
+    "the-script-share": "^1.0.5",
+    "the-script-test": "^2.0.1",
+    "the-script-update": "^1.0.0",
+    "the-templates": "^2.3.1"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=4"
+  },
+  "homepage": "https://github.com/the-labo/the-head#readme",
+  "keywords": [
+    "react-component",
+    "the"
+  ],
+  "license": "MIT",
   "main": "shim",
+  "peerDependencies": {
+    "react": ">=15",
+    "react-dom": ">=15"
+  },
+  "repository": "the-labo/the-head",
   "scripts": {
     "build": "the-script-build",
     "doc": "the-script-doc",
@@ -12,44 +51,5 @@
     "test": "the-script-test",
     "update": "the-script-update",
     "watch": "the-script-build -w"
-  },
-  "repository": "the-labo/the-head",
-  "keywords": [
-    "the",
-    "react-component"
-  ],
-  "author": {
-    "name": "Taka Okunishi",
-    "email": "okunishinishi@gmail.com",
-    "url": "http://okunishitaka.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/the-labo/the-head/issues"
-  },
-  "homepage": "https://github.com/the-labo/the-head#readme",
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "stringcase": "^4.1.0"
-  },
-  "devDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "the-script-build": "^2.0.3",
-    "the-script-doc": "^1.0.1",
-    "the-script-release": "^1.0.6",
-    "the-script-share": "^1.0.5",
-    "the-script-test": "^2.0.1",
-    "the-script-update": "^1.0.0",
-    "the-templates": "^2.3.1"
-  },
-  "peerDependencies": {
-    "react": ">=15",
-    "react-dom": ">=15"
-  },
-  "engines": {
-    "node": ">=6",
-    "npm": ">=4"
   }
 }
