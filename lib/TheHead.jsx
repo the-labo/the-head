@@ -94,6 +94,7 @@ class TheHead extends React.Component {
           [].concat(js).filter(Boolean).map((url) => (
             <script type='text/javascript'
                     key={url}
+                    defer
                     className='the-head-js'
                     src={this.urlFor(url)}>
             </script>

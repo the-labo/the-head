@@ -24,7 +24,7 @@
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^2.3.1"
+    "the-templates": "^2.4.1"
   },
   "engines": {
     "node": ">=6",
