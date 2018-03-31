@@ -4,13 +4,6 @@
     "displayName": "TheHead",
     "methods": [
       {
-        "name": "getVersionQuery",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      },
-      {
         "name": "getFallbackScript",
         "docblock": null,
         "modifiers": [],
@@ -20,6 +13,13 @@
             "type": null
           }
         ],
+        "returns": null
+      },
+      {
+        "name": "getVersionQuery",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
         "returns": null
       },
       {
@@ -36,23 +36,34 @@
       }
     ],
     "props": {
-      "className": {
+      "base": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "CSS class name",
+        "description": "Base url",
         "defaultValue": {
           "value": "null",
           "computed": false
         }
       },
-      "id": {
+      "baseTarget": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "DOM Id",
+        "description": "Target of base url. '_blank', '_parent', '_self', '_top' or frame name",
+        "defaultValue": {
+          "value": "undefined",
+          "computed": true
+        }
+      },
+      "cdn": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CDN URL",
         "defaultValue": {
           "value": "null",
           "computed": false
@@ -69,14 +80,47 @@
           "computed": false
         }
       },
-      "title": {
+      "className": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "Document title",
+        "description": "",
         "defaultValue": {
           "value": "null",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Theme color",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "fallbackUnless": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Global property for fall back",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "globals": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Global variables",
+        "defaultValue": {
+          "value": "{}",
           "computed": false
         }
       },
@@ -91,14 +135,69 @@
           "computed": false
         }
       },
-      "globals": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DOM Id",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "itemProps": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Global variables",
+        "description": "Item props",
         "defaultValue": {
           "value": "{}",
+          "computed": false
+        }
+      },
+      "manifest": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Path of manifest.json",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "metaContents": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Met contents",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "metaProperties": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Met properties",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Document title",
+        "defaultValue": {
+          "value": "null",
           "computed": false
         }
       },
@@ -131,106 +230,7 @@
         "required": false,
         "description": "View port settings",
         "defaultValue": {
-          "value": "{width: 'device-width', initialScale: '1.0'}",
-          "computed": false
-        }
-      },
-      "base": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Base url",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "baseTarget": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Target of base url. '_blank', '_parent', '_self', '_top' or frame name",
-        "defaultValue": {
-          "value": "undefined",
-          "computed": true
-        }
-      },
-      "metaContents": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Met contents",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
-      },
-      "metaProperties": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Met properties",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
-      },
-      "itemProps": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Item props",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
-      },
-      "color": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Theme color",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "manifest": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Path of manifest.json",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "cdn": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "CDN URL",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "fallbackUnless": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Global property for fall back",
-        "defaultValue": {
-          "value": "null",
+          "value": "{initialScale: '1.0', width: 'device-width'}",
           "computed": false
         }
       }
