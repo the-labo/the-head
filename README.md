@@ -111,24 +111,24 @@ Head of the-components
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
-| `className` | string  | CSS class name | `null` |
-| `id` | string  | DOM Id | `null` |
-| `charSet` | string  | Char set | `'utf-8'` |
-| `title` | string  | Document title | `null` |
-| `icon` | string  | Favicon url | `null` |
-| `globals` | object  | Global variables | `{}` |
-| `version` | string  | Version string | `'unknown'` |
-| `versionKey` | string  | Key for version query | `'v'` |
-| `viewPort` | object  | View port settings | `{width: 'device-width', initialScale: '1.0'}` |
 | `base` | string  | Base url | `null` |
 | `baseTarget` | string  | Target of base url. '_blank', '_parent', '_self', '_top' or frame name | `undefined` |
+| `cdn` | string  | CDN URL | `null` |
+| `charSet` | string  | Char set | `'utf-8'` |
+| `className` | string  |  | `null` |
+| `color` | string  | Theme color | `null` |
+| `fallbackUnless` | string  | Global property for fall back | `null` |
+| `globals` | object  | Global variables | `{}` |
+| `icon` | string  | Favicon url | `null` |
+| `id` | string  | DOM Id | `null` |
+| `itemProps` | object  | Item props | `{}` |
+| `manifest` | string  | Path of manifest.json | `null` |
 | `metaContents` | object  | Met contents | `{}` |
 | `metaProperties` | object  | Met properties | `{}` |
-| `itemProps` | object  | Item props | `{}` |
-| `color` | string  | Theme color | `null` |
-| `manifest` | string  | Path of manifest.json | `null` |
-| `cdn` | string  | CDN URL | `null` |
-| `fallbackUnless` | string  | Global property for fall back | `null` |
+| `title` | string  | Document title | `null` |
+| `version` | string  | Version string | `'unknown'` |
+| `versionKey` | string  | Key for version query | `'v'` |
+| `viewPort` | object  | View port settings | `{initialScale: '1.0', width: 'device-width'}` |
 
 
 <!-- Section from "docs/guides/03.Components.md.hbs" End -->
