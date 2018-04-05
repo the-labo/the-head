@@ -97,6 +97,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
           ))
         }
         {color && (<meta className='the-head-theme-color' content={color} name='theme-color'/>)}
+
+        <meta content="default-src * data: blob: 'unsafe-inline' 'unsafe-eval' ws: wss:;"
+              httpEquiv='Content-Security-Policy'/>
+
         {manifest && (<link className='the-head-manifest' href={color} rel='manifest'/>)}
 
         {
