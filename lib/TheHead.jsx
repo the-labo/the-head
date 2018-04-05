@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         <meta content="default-src * data: blob: 'unsafe-inline' 'unsafe-eval' ws: wss:;"
               httpEquiv='Content-Security-Policy'/>
 
-        {manifest && (<link className='the-head-manifest' href={color} rel='manifest'/>)}
+        {manifest && (<link className='the-head-manifest' href={manifest} rel='manifest'/>)}
 
         {
           [].concat(css).filter(Boolean).map((url) => (
