@@ -190,6 +190,17 @@
           "computed": false
         }
       },
+      "ogpContents": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "OGP contents",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
       "title": {
         "type": {
           "name": "string"
