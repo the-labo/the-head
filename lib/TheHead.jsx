@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       manifest,
       metaContents,
       metaProperties,
+      ogpContents,
       title,
       viewPort,
     } = props
@@ -71,9 +72,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
     const globals = expand(props.globals || {})
 
     const fallbackScript = this.getFallbackScript(fallbackUnless)
+    const ogpEnabled = Object.keys(ogpContents).length > 0
     return (
       <head className={c('the-head', className)}
             {...{id}}
+            prefix={ogpEnabled && 'og: http://ogp.me/ns#'}
       >
 
         {charSet && (<meta charSet={charSet} className='the-head-charset'/>)}
@@ -89,6 +92,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
         {
           metaProperties && Object.keys(metaProperties).map((name) => (
             <meta className='the-head-meta-property' key={name} name={name} property={metaProperties[name]}/>
+          ))
+        }
+        {
+          ogpContents && Object.keys(ogpContents).map((property) => (
+            <meta className='the-head-meta-ogp' content={ogpContents[property]} key={property} property={property}/>
           ))
         }
         {
@@ -188,6 +196,8 @@ TheHead.propTypes = {
   metaContents: PropTypes.object,
   /** Met properties */
   metaProperties: PropTypes.object,
+  /** OGP contents */
+  ogpContents: PropTypes.object,
   /** Document title */
   title: PropTypes.string,
   /** Version string */
@@ -213,6 +223,7 @@ TheHead.defaultProps = {
   manifest: null,
   metaContents: {},
   metaProperties: {},
+  ogpContents: {},
   title: null,
   version: 'unknown',
   versionKey: 'v',

@@ -125,6 +125,7 @@ Head of the-components
 | `manifest` | string  | Path of manifest.json | `null` |
 | `metaContents` | object  | Met contents | `{}` |
 | `metaProperties` | object  | Met properties | `{}` |
+| `ogpContents` | object  | OGP contents | `{}` |
 | `title` | string  | Document title | `null` |
 | `version` | string  | Version string | `'unknown'` |
 | `versionKey` | string  | Key for version query | `'v'` |
