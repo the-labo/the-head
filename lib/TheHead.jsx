@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
         {
           ogpContents && Object.keys(ogpContents).map((property) => (
-            <meta className='the-head-meta-property' content={ogpContents[property]} key={name} property={property}/>
+            <meta className='the-head-meta-ogp' content={ogpContents[property]} key={property} property={property}/>
           ))
         }
         {
