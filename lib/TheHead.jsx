@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     return (
       <head className={c('the-head', className)}
             {...{id}}
-            prefix={ogpEnabled && 'og: http://ogp.me/ns#'}
+            prefix={ogpEnabled ? 'og: http://ogp.me/ns#' : null}
       >
 
         {charSet && (<meta charSet={charSet} className='the-head-charset'/>)}
