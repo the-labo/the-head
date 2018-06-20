@@ -8,6 +8,5 @@
 import TheHead from './TheHead'
 
 export {
-  TheHead,
+ TheHead,
 }
-
