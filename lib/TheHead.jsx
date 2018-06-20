@@ -13,7 +13,7 @@ const viewPortString = (values) => Object.keys(values || {}).map((key) =>
 ).join(',')
 const stringify = (vars) => vars ? JSON.stringify(vars) : 'null'
 
-const ogKey = (key) => {
+const ogProperty = (key) => {
   if (/^og:/.test(key)) {
     return key
   }
@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
           ogpContents && Object.keys(ogpContents).map((property) => (
             <meta className='the-head-meta-ogp'
                   content={ogpContents[property]}
-                  key={ogKey(property)}
-                  property={property}/>
+                  key={property}
+                  property={ogProperty(property)}/>
           ))
         }
         {
