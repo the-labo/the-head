@@ -17,15 +17,15 @@
   },
   "devDependencies": {
     "objnest": "^4.1.4",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "the-script-build": "^3.1.17",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "the-script-build": "^4.0.2",
     "the-script-doc": "^1.0.1",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
-    "the-script-test": "^2.1.1",
+    "the-script-test": "^2.1.2",
     "the-script-update": "^2.0.0",
-    "the-templates": "^4.0.17"
+    "the-templates": "^4.0.20"
   },
   "engines": {
     "node": ">=6",
