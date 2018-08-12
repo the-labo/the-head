@@ -16,16 +16,16 @@
     "stringcase": "^4.2.0"
   },
   "devDependencies": {
-    "objnest": "^4.1.4",
+    "objnest": "^5.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "the-script-build": "^4.0.2",
+    "the-script-build": "^4.0.4",
     "the-script-doc": "^1.0.1",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.1.2",
     "the-script-update": "^2.0.0",
-    "the-templates": "^4.0.20"
+    "the-templates": "^4.0.24"
   },
   "engines": {
     "node": ">=6",
