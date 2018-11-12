@@ -241,7 +241,7 @@
         "required": false,
         "description": "View port settings",
         "defaultValue": {
-          "value": "{initialScale: '1.0', width: 'device-width'}",
+          "value": "{ initialScale: '1.0', width: 'device-width' }",
           "computed": false
         }
       }

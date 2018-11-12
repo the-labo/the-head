@@ -124,7 +124,7 @@ Head of the-components
 | `title` | string  | Document title | `null` |
 | `version` | string  | Version string | `'unknown'` |
 | `versionKey` | string  | Key for version query | `'v'` |
-| `viewPort` | object  | View port settings | `{initialScale: '1.0', width: 'device-width'}` |
+| `viewPort` | object  | View port settings | `{ initialScale: '1.0', width: 'device-width' }` |
 
 
 <!-- Section from "doc/guides/03.Components.md.hbs" End -->

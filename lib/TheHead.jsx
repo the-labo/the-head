@@ -29,7 +29,7 @@ class TheHead extends React.Component {
       return null
     }
     const vQuery = this.getVersionQuery()
-    const {css, js} = this.props
+    const { css, js } = this.props
     const fallbackHTML = [
       ...[].concat(css).filter(Boolean).map((url) =>
         `<link rel="stylesheet" type="text/css" class="the-head-css" href="${addQuery(url, vQuery)}"/>`
@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
   getVersionQuery () {
-    const {version, versionKey} = this.props
+    const { version, versionKey } = this.props
     return [versionKey, version].join('=')
   }
 
   render () {
-    const {props} = this
+    const { props } = this
     const {
       base,
       baseTarget,
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     const ogpEnabled = Object.keys(ogpContents).length > 0
     return (
       <head className={c('the-head', className)}
-            {...{id}}
+            {...{ id }}
             prefix={ogpEnabled ? 'og: http://ogp.me/ns#' : null}
       >
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
           Object.keys(globals).map((name) => (
             <script className='the-head-globals'
                     dangerouslySetInnerHTML={
-                      {__html: `window.${name}=${stringify(globals[name])}`}
+                      { __html: `window.${name}=${stringify(globals[name])}` }
                     }
                     key={name}
                     type='text/javascript'>
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
   urlFor (url) {
-    const {cdn} = this.props
+    const { cdn } = this.props
     const vQuery = this.getVersionQuery()
     if (vQuery) {
       url = addQuery(url, vQuery)
@@ -237,7 +237,7 @@ TheHead.defaultProps = {
   title: null,
   version: 'unknown',
   versionKey: 'v',
-  viewPort: {initialScale: '1.0', width: 'device-width'},
+  viewPort: { initialScale: '1.0', width: 'device-width' },
 }
 
 TheHead.displayName = 'TheHead'
